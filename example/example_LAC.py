@@ -23,8 +23,9 @@ if __name__ == "__main__":
 
     # The short names of all the gcms to run
     # GCMS = ["IPSL-CM5A-LR", "MIROC-ESM-CHEM", 'NorESM1-M', 'HadGEM2-ES', 'GFDL-ESM2M']
-    GCMS = ['MIROC-ESM-CHEM']
-    RCPS = ['rcp6p0']
+    # RCPS = ['rcp2p6', 'rcp6p0', 'rcp4p5', 'rcp8p5']
+    GCMS = ['GFDL-ESM2M']
+    RCPS = ['rcp2p6']
     SCENARIOS = ['Reference', 'Impacts', 'Policy']
 
     projected_dir = r'E:/NEXO-UA/Demeter/example/inputs/projected/'
@@ -32,10 +33,10 @@ if __name__ == "__main__":
     for gcm in GCMS:
         for rcp in RCPS:
             for scn in SCENARIOS:
-                projected_lu_data = [cf for cf in projected_files if 'DemeterDownscaled_33Regions' in cf and gcm in cf
+                projected_lu_data = [cf for cf in projected_files if 'DemeterDownscaled_33Regions_gcam5p3-stash' in cf and gcm in cf
                                      and rcp in cf and scn in cf]
 
-                scenario = gcm + '_' + rcp + '_' + scn
+                scenario = 'gcam5p3-stash_' + gcm + '_' + rcp + '_' + scn
                 run_desc = 'demeter_' + scn
 
                 args = {
